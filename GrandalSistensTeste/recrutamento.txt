@@ -1,0 +1,121 @@
+﻿Servidor de banco de dados:
+host: localhost
+usuario: webgl034_wa
+senha: recrutamento
+
+Servidor FTP:
+host:www.webglota.com.br
+usuario: user1
+senha: recrutamento
+
+Servidor HTTP
+Endereço do site para teste: recrutamento.webglota.com.br/userXX
+Versão PHP: 5.6
+
+Tabelas usadas:
+fazenda
+caixa
+
+Relacionamento:
+caixa.id_faz <=> fazenda.id
+
+Com os dados acima desenvolver os processos abaixo:
+Requisitos:
+	- usar conexão mysql com MySQLi ou PDO
+	- leiaute responsivo com Bootstrap
+	- validar dados com javascript: todos os campos são requeridos
+	- menu com link para os processos
+	- relatórios com tabelas
+
+1 - Tela para listar, inserir e editar dados da fazenda
+	Listar dados da fazenda em uma tabela colocando em cada linha um link para editar os dados da linha.
+	Colocar botão para inserir registro.
+	Fazer tela para inserir e editar os campos da tabela
+	Os campos id, regusr, regdta e regsit não devem aparecer para o usuário.
+	Enviar dados para o servidor e salvar na tabela fazenda.
+	Incluir seu número de usuário no campo regusr ao inserir.
+
+2 - Tela para listar, inserir e editar dados no caixa
+	Listar dados do caixa em uma tabela colocando em cada linha um link para editar os dados da linha.
+	Colocar botão no topo para inserir registro.
+	Fazer tela para inserir e editar solicitando fazenda, data, histórico, valor e natureza (Débito ou Crédito).
+	Os campos id, regusr, regdta e regsit não devem aparecer para o usuário.
+	Usar select e radio para selecionar fazenda e natureza.
+	Enviar dados para o servidor e salvar na tabela caixa.
+	Incluir seu número de usuário no campo regusr ao inserir.
+
+2 - Relatório de caixa da fazenda:
+	Tela:
+		- Selecionar fazenda e intervalo de datas
+	Relatório:
+		- Se não selecionar fazenda listar todas totalizando cada fazenda
+		- Listar lançamentos em ordem de fazenda e data mostrando o saldo no final de cada mês, saldo final 
+		  da fazenda e saldo total no final do relatório se listar todas as fazendas
+		Ex:
+			Fazenda 1
+			--------------------------------------------------------------------------
+			Data       | Histórico                | Entrada   | Saída     | Saldo
+			--------------------------------------------------------------------------
+			01/01/2019 | PG NF 1234 XXXX          |  5.000,00 |           |
+			01/01/2019 | PG NF 1234 XXXX          |           |  1.000,00 |
+			01/01/2019 | PG NF 1234 XXXX          |           |  2.000,00 |
+			--------------------------------------------------------------------------
+			           | Total Janeiro/2019       |  5.000,00 |  3.000,00 |  2.000,00
+			--------------------------------------------------------------------------
+					   
+			--------------------------------------------------------------------------
+			01/01/2019 | PG NF 1234 XXXX          |  3.000,00 |           |
+			01/01/2019 | PG NF 1234 XXXX          |           |  1.500,00 |
+			01/01/2019 | PG NF 1234 XXXX          |           |  1.500,00 |
+			--------------------------------------------------------------------------
+			           | Saldo Fevereiro/2019     |  3.000,00 |  3.000,00 |  2.000,00
+			--------------------------------------------------------------------------
+					   
+			--------------------------------------------------------------------------
+			           | Total Fazenda 1          |  8.000,00 |  6.000,00 |  2.000,00
+			--------------------------------------------------------------------------
+					   
+			Fazenda 2
+			--------------------------------------------------------------------------
+			Data       | Histórico                | Entrada   | Saída     | Saldo
+			--------------------------------------------------------------------------
+			01/01/2019 | PG NF 1234 XXXX          |  5.000,00 |           |
+			01/01/2019 | PG NF 1234 XXXX          |           |  1.000,00 |
+			01/01/2019 | PG NF 1234 XXXX          |           |  2.000,00 |
+			--------------------------------------------------------------------------
+			           | Total Janeiro/2019       |  5.000,00 |  3.000,00 |  2.000,00
+			--------------------------------------------------------------------------
+					   
+			--------------------------------------------------------------------------
+			01/01/2019 | PG NF 1234 XXXX          |  3.000,00 |           |
+			01/01/2019 | PG NF 1234 XXXX          |           |  1.500,00 |
+			01/01/2019 | PG NF 1234 XXXX          |           |  1.500,00 |
+			--------------------------------------------------------------------------
+			           | Saldo Fevereiro/2019     |  3.000,00 |  3.000,00 |  2.000,00
+			--------------------------------------------------------------------------
+					   
+			--------------------------------------------------------------------------
+			           | Total Fazenda 1          |  8.000,00 |  6.000,00 |  2.000,00
+			--------------------------------------------------------------------------
+					   
+			--------------------------------------------------------------------------
+			Data       | Histórico                | Entrada   | Saída     | Saldo
+			--------------------------------------------------------------------------
+			           | Total Geral das Fazendas | 16.000,00 | 12.000,00 |  4.000,00
+			--------------------------------------------------------------------------
+					   
+			
+3 - Resumo mensal
+	Tela:
+		Solicitar ano
+	Relatório:
+		Planilha com fazendas e os totais por mês de cada fazenda totalizando no final:
+		Ex:
+			--------------------------------------------------------------
+			Fazendas/meses     | Jan/2019 | Fev/2019  | ... | Total
+			--------------------------------------------------------------
+			Fazenda 1          | 2.000,00 | 10.000,00 | ... | 12.000,00
+			Fazenda 2          | 2.000,00 | 10.000,00 | ... | 12.000,00
+			--------------------------------------------------------------
+			Total das fazendas | 4.000,00 | 20.000,00 | ... | 24.000,00
+			--------------------------------------------------------------
